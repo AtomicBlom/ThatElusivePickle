@@ -1,0 +1,16 @@
+[
+{
+  "modid": "elusivepickle",
+  "name": "That Elusive Pickle",
+  "description": "The Final Reward for WeAllPlayCast's modpack",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["AtomicBlom"],
+  "credits": "chat",
+  "logoFile": "assets/elusivepickle/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

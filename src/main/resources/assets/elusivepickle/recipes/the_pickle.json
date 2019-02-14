@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AB",
+    "CD"
+  ],
+  "key": {
+    "A": {
+      "item": "elusivepickle:part_a"
+    },
+    "B": {
+      "item": "elusivepickle:part_b"
+    },
+    "C": {
+      "item": "elusivepickle:part_c"
+    },
+    "D": {
+      "item": "elusivepickle:part_d"
+    }
+  },
+  "result": {
+    "item": "elusivepickle:pickle"
+  }
+}
