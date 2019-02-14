@@ -24,6 +24,16 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+
+///////////////////////////////////////////////////
+// IDE Settings
+///////////////////////////////////////////////////
+//idea {
+//    project {
+//        languageLevel = '1.8'
+//    }
+//}
+
 ///////////////////////////////////////////////////
 // ForgeGradle
 ///////////////////////////////////////////////////
@@ -42,7 +52,7 @@ minecraft {
 
     replace '@MOD_VERSION@', version
     replace '@MOD_ID@', config.mod_id
-    replace '@CI_BUILD@', hasProperty("CIRevision") ? 'true' : 'false'
+    replace '@CI_BUILD@', hasProperty("CIRevision") ? (hasProperty("CIType") ? CIType : 'PRIVATE') : 'PRIVATE'
 }
 
 processResources
@@ -72,12 +82,9 @@ processResources
             }
         }
 
-//jar {
-//    classifier = 'universal'
-//    manifest {
-//        attributes 'FMLAT': config.mod_id + '_at.cfg'
-//    }
-//}
+jar {
+    classifier = 'universal'
+}
 
 sourceSets {
     main {
