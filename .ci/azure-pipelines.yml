@@ -83,6 +83,15 @@ steps:
       targetFolder: $(build.artifactStagingDirectory)/beta
     condition: and(succeeded(), eq(variables['CreateArtifacts'], 'True'))
 
+  - powershell: |
+      $version = "${env:JAVAPROPS_MOD_VERSION}.${env:REVISION}"
+      $fileName = "$env:BUILD_ARTIFACTSTAGINGDIRECTORY/version.txt"
+      write-output "Adding version $version to $fileName"
+      set-content $fileName $version
+      write-output "##vso[task.addattachment type=Distributedtask.Core.Summary;name=Environment Variables;]$fileName"
+    displayName: Write release version to a file
+    condition: and(succeeded(), eq(variables['CreateArtifacts'], 'True'))
+
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Build Artifacts to VSTS'
     condition: and(succeeded(), eq(variables['CreateArtifacts'], 'True'))
